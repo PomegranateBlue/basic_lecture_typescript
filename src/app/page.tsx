@@ -17,3 +17,5 @@ const HomePage = async () => {
     </div>
   );
 };
+
+export default HomePage;
