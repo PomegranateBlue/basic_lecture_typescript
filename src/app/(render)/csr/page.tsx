@@ -7,7 +7,7 @@ const CSRPage = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const response = await fetch("https://localhost:5000/todos");
+      const response = await fetch("http://localhost:5000/todos");
       const data: Todo[] = await response.json();
 
       setData(data);
@@ -16,8 +16,7 @@ const CSRPage = () => {
     getData();
   }, []);
 
-
-  return <div>CSRPage:{JSON.stringify(data)}</div>
+  return <div>CSRPage:{JSON.stringify(data)}</div>;
 };
 
 export default CSRPage;

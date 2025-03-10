@@ -3,7 +3,7 @@ import { Todo } from "@/types/todo.type";
 const TEN_SECONDES = 10;
 
 const ISRPage = async () => {
-  const response = await fetch("https://localhost:5000/todos", {
+  const response = await fetch("http://localhost:5000/todos", {
     next: {
       revalidate: TEN_SECONDES,
     },
