@@ -1,17 +1,17 @@
 {
   "todos": [
     {
-      "id": 1,
+      "id": "1",
       "text": "Next.js 배우기",
       "completed": false
     },
     {
-      "id": 2,
+      "id": "2",
       "text": "TypeScript 공부하기",
-      "completed": true
+      "completed": false
     },
     {
-      "id": 3,
+      "id": "3",
       "text": "API 연동 테스트",
       "completed": false
     }

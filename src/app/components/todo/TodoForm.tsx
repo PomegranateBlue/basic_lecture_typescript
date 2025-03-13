@@ -12,6 +12,7 @@ const TodoForm = () => {
     const todoText = formData.get("todo-text") as string;
 
     await createTodo(todoText);
+    form.reset();
   };
 
   return (
