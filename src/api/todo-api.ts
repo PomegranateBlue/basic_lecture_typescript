@@ -1,9 +1,15 @@
-import { Todo } from "@/types/todo.type";
+"use server";
 
+import { Todo } from "@/types/todo.type";
+import { revalidateTag } from "next/cache";
 const BASE_URL = "http://localhost:5000/todos";
 
 export const getTodos = async () => {
-  const response = await fetch(BASE_URL);
+  const response = await fetch(BASE_URL, {
+    next: {
+      tags: ["todos"],
+    },
+  });
   const data: Todo[] = await response.json();
 
   return data;
@@ -28,7 +34,7 @@ export const deleteTodo = async (id: Todo["id"]) => {
   });
 
   const data: Todo = await response.json();
-
+  revalidateTag("todos");
   return data;
 };
 
@@ -46,5 +52,6 @@ export const toggleTodoCompleted = async (
 
   const data: Todo = await response.json();
 
-  return data; 
+  revalidateTag("todos");
+  return data;
 };
