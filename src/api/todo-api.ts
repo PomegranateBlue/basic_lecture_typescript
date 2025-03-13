@@ -23,8 +23,8 @@ export const createTodo = async (text: string) => {
     },
     body: JSON.stringify({ text, completed: false }),
   });
-
   const data: Todo = await response.json();
+  revalidateTag("todos");
   return data;
 };
 
@@ -49,9 +49,18 @@ export const toggleTodoCompleted = async (
     },
     body: JSON.stringify({ completed }),
   });
+  const data: Todo = await response.json();
+  revalidateTag("todos");
+  return data;
+};
+
+export const getTodoItem = async (id: Todo["id"]) => {
+  const response = await fetch(`${BASE_URL}/${id}`, {
+    next: {
+      tags: ["todos", id],
+    },
+  });
 
   const data: Todo = await response.json();
-
-  revalidateTag("todos");
   return data;
 };
