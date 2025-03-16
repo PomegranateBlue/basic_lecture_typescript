@@ -1,10 +1,11 @@
 "use client";
 
 import { Todo } from "@/types/todo.type";
-import { deleteTodo, toggleTodoCompleted } from "@/api/todo-api";
+import { toggleTodoCompleted } from "@/api/todo-api";
 import Link from "next/link";
 import { Button } from "@/app/ui/button";
 import { cn } from "@/lib/utils";
+import TodoDeleteButton from "./TodoDeleteButton";
 interface TodoItemProps {
   todo: Todo;
 }
@@ -28,9 +29,7 @@ const TodoItem = ({ todo }: TodoItemProps) => {
         >
           {completed ? "취소" : "완료"}
         </Button>
-        <Button onClick={() => deleteTodo(id)} variant="destructive">
-          삭제
-        </Button>
+        <TodoDeleteButton id={id} />
       </div>
     </article>
   );
