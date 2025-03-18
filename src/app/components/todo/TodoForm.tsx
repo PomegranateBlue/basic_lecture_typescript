@@ -1,9 +1,10 @@
 "use client";
-
+import { useCreateTodoMutation } from "@/app/query/useTodoMutation";
 import { FormEvent } from "react";
 import { Button } from "@/app/ui/button";
 import { Input } from "@/app/ui/input";
 const TodoForm = () => {
+  const { mutateAsync: createTodo } = useCreateTodoMutation();
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -11,10 +12,7 @@ const TodoForm = () => {
     const formData = new FormData(form);
     const todoText = formData.get("todo-text") as string;
 
-    await fetch("/api/todos", {
-      method: "POST",
-      body: JSON.stringify({ text: todoText }),
-    });
+    await createTodo(todoText);
     form.reset();
   };
 
