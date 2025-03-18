@@ -8,7 +8,7 @@ export const DELETE = async (
   const { id } = await params;
 
   await deleteTodo(id);
-  revalidatePath("/");
+  revalidatePath("/");  
   return Response.json({ revalidated: true, now: Date.now() });
 };
 
