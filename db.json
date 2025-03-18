@@ -14,6 +14,13 @@
       "id": "3",
       "text": "API 연동 테스트",
       "completed": false
+    },
+    {
+      "id": "fbbe",
+      "text": {
+        "todoText": null
+      },
+      "completed": false
     }
   ]
 }
