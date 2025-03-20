@@ -1,10 +1,10 @@
 import { getTodos, getTodoItem } from "@/api/todo-api";
 import { useQuery } from "@tanstack/react-query";
-
-export const useTodoQuery = () => {
+import { FilterType } from "@/store/useTodoFilterStore";
+export const useTodoQuery = (filter: FilterType) => {
   return useQuery({
-    queryKey: ["todos"],
-    queryFn: getTodos,
+    queryKey: ["todos", filter],
+    queryFn: () => getTodos(filter),
   });
 };
 

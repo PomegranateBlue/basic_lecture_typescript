@@ -2,8 +2,10 @@
 
 import TodoItem from "./TodoItem";
 import { useTodoQuery } from "@/app/query/useTodoQuery";
+import { useTodoFilterStore } from "@/store/useTodoFilterStore";
 const TodoList = () => {
-  const { data: todos } = useTodoQuery();
+  const { filter } = useTodoFilterStore();
+  const { data: todos } = useTodoQuery(filter);
 
   return (
     <ul className="splace-y-2">
