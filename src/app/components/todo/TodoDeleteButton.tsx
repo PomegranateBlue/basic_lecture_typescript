@@ -9,11 +9,12 @@ import {
   AlertDialogHeader,
   AlertDialogTrigger,
   AlertDialogTitle,
-} from "../../ui/alert-dialog";
-import { Button } from "@/app/ui/button";
+} from "../ui/alert-dialog";
+import { Button } from "@/app/components/ui/button";
 import { useDeleteTodoMutation } from "@/app/query/useTodoMutation";
+import { Todo } from "@/types/todo.type";
 interface TodoDeleteButtonProps {
-  id: string;
+  id: Todo["id"];
 }
 
 const TodoDeleteButton = ({ id }: TodoDeleteButtonProps) => {

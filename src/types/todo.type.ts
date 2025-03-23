@@ -1,8 +1,5 @@
-import { Tables } from "../../database.types";
+import { Database, Tables } from "../../database.types";
+import { SupabaseClient } from "@supabase/supabase-js";
 
 export type Todo = Tables<"todos">;
-// export interface Todo {
-//   id: string;
-//   text: string;
-//   completed: boolean;
-// }
+export type Supabase = SupabaseClient<Database>;

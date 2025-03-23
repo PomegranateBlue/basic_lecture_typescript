@@ -14,19 +14,19 @@ export type Database = {
           completed: boolean
           created_at: string
           id: number
-          todos: string
+          title: string
         }
         Insert: {
           completed?: boolean
           created_at?: string
           id?: number
-          todos: string
+          title: string
         }
         Update: {
           completed?: boolean
           created_at?: string
           id?: number
-          todos?: string
+          title?: string
         }
         Relationships: []
       }

@@ -14,7 +14,7 @@ interface TodoItemProps {
 }
 
 const TodoItem = ({ todo }: TodoItemProps) => {
-  const { completed, id, text } = todo;
+  const { completed, id, title } = todo;
   const checkBoxId = useId();
   const { mutate: toggleTodoCompleted } = useToggleTodoMutation();
 
@@ -38,7 +38,7 @@ const TodoItem = ({ todo }: TodoItemProps) => {
             "line-through": completed,
           })}
         >
-          <h2>{text}</h2>
+          <h2>{title}</h2>
         </Link>
       </div>
       <div className="space-x-2">
