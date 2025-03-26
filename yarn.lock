@@ -3020,10 +3020,10 @@ styled-jsx@5.1.6:
   dependencies:
     client-only "0.0.1"
 
-supabase@^2.19.7:
-  version "2.19.7"
-  resolved "https://registry.npmjs.org/supabase/-/supabase-2.19.7.tgz"
-  integrity sha512-+Qu5xHvk/CnAHb5iDpCWCX0SdwFR5smpTG6VUSTw/T8WxCDDQsIb2mui2pu18wqKOZ0NLs/ZTDDb2+yPejTRBQ==
+supabase@^2.20.3:
+  version "2.20.3"
+  resolved "https://registry.npmjs.org/supabase/-/supabase-2.20.3.tgz"
+  integrity sha512-nUB2Tbbnr3L2RenY51J/FKcXNBAlOK6s7XL7PQUDxBhe8/EoYOLcyVke0XLNTUBeybdqoSw8ApbafLCT6Hd8mg==
   dependencies:
     bin-links "^5.0.0"
     https-proxy-agent "^7.0.2"

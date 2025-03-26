@@ -7,9 +7,9 @@ export const GET = async () => {
 };
 
 export const POST = async (request: Request) => {
-  const { text } = await request.json();
+  const { title } = await request.json();
 
-  await createTodo(text);
+  await createTodo(title);
 
   revalidatePath("/");
   return Response.json({ revalidated: true, now: Date.now() });

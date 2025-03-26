@@ -1,19 +1,22 @@
-"use server";
-import { createClient } from "@/app/utils/supabase/client";
 import { FilterType } from "@/store/useTodoFilterStore";
 import { Supabase, Todo } from "@/types/todo.type";
-
-export const getTodos = async (supabase: Supabase, filter?: FilterType) => {
+import { createClient } from "@/app/utils/supabase/client";
+import { SupabaseClient } from "@supabase/supabase-js";
+export const getTodos = async (
+  supabase: SupabaseClient = createClient(),
+  filter?: FilterType
+) => {
   const todoQuery = supabase
     .from("todos")
     .select()
+    .eq("completed", filter === "completed")
     .order("created_at", { ascending: true });
+
+  const { data, error } = await todoQuery;
 
   if (filter === "completed") {
     todoQuery.eq("completed", true);
   }
-
-  const { data, error } = await todoQuery;
 
   if (error) {
     throw new Error(error.message);
@@ -22,13 +25,15 @@ export const getTodos = async (supabase: Supabase, filter?: FilterType) => {
   return data;
 };
 
-export const getTodoItem = async (supabase: Supabase, id: Todo["id"]) => {
+export const getTodoItem = async (
+  supabase: Supabase = createClient(),
+  id: Todo["id"]
+) => {
   const { data, error } = await supabase
     .from("todos")
     .select()
     .eq("id", id)
     .single();
-
   if (error) {
     throw new Error(error.message);
   }
@@ -38,7 +43,6 @@ export const getTodoItem = async (supabase: Supabase, id: Todo["id"]) => {
 
 export const createTodo = async (title: Todo["title"]) => {
   const supabase = createClient();
-
   const { error } = await supabase.from("todos").insert({ title });
 
   if (error) {

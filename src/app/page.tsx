@@ -11,7 +11,7 @@ import { createClient } from "./utils/supabase/client";
 const HomePage = async () => {
   const queryClient = new QueryClient();
   const supabaseClient = await createClient();
-
+  
   await queryClient.prefetchQuery({
     queryKey: ["todos", "all"],
     queryFn: () => getTodos(supabaseClient),
